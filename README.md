@@ -70,3 +70,10 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 ## 问题反馈列表
 
 若使用过程中有优化建议可反馈在问题清单中，videoUI功能会不定期更新与完善，你们的问题就是我的动力。
+
+## 相关资源
+
+[GitHub地址](https://github.com/CNBruceLee/videoUI)
+
+[Gitee地址](https://gitee.com/cnbrucelee/videoUI)
+
