@@ -7,7 +7,7 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 ## 样式
 
-![demo1](multimedia\images\demo1.png)
+![demo1](https://github.com/CNBruceLee/videoUI/blob/master/multimedia/images/demo1.png)
 
 
 
