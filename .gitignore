@@ -18,8 +18,8 @@ bin-release/
 # information for Eclipse / Flash Builder.
 /lang/
 /.idea/
-iconfont-br/demo*
-examples/demo3.html
-examples/*_dev.html
+components/iconfont-br/demo*
+docs/examples/demo3.html
+docs/examples/*_dev.html
 src/css/*_dev.css
 src/js/*_dev.js
