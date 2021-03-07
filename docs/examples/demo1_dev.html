@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>videoUI</title>
+    <link rel="stylesheet" href="../../components/iconfont-br/iconfont.css">
+    <link rel="stylesheet" href="../../src/css/jquery.videoUI_dev.css">
+</head>
+<body>
+
+<div class="container"><!--网页全屏时的容器-->
+
+    <div class="video_ui" style="width: 720px;height: 480px;margin: 10px auto">
+        <div class="br_video_container br_not_select br_no_touch">
+            <div class="br_video_wrapper">
+                <video class="br_video_content"
+                       poster="https://iedu.rizhaosteel.com:9443/static/images/video_loading.png" preload="auto">
+                    <source class="br_video_source" src="https://iedu.rizhaosteel.com:9443/kp/stream_video-5.mp4"
+                            type="video/mp4">
+                    <p class="br_video_error">To view this video please enable JavaScript, and consider upgrading to a
+                        web browser</p>
+                </video>
+            </div>
+            <div class="br_video_controls">
+                <div class="br_control_left br_display_flex">
+                    <div class="br_play_toggle br_btn">
+                        <div class="iconfont_br icon_br_play"></div>
+                        <div class="br_tip_text">播放</div>
+                    </div>
+                    <div class="br_time_display br_display_flex">
+                        <div class="br_time_current">00:00</div>
+                        <div class="br_time_separator">/</div>
+                        <div class="br_time_duration">00:00</div>
+                    </div>
+                </div>
+                <div class="br_progress_bar">
+                    <div class="br_progress_load"></div>
+                    <div class="br_progress_play"></div>
+                </div>
+                <div class="br_control_right br_display_flex">
+                    <div class="br_bullet_toggle br_btn">
+                        <div class="iconfont_br icon_br_bullet_on"></div>
+                        <div class="br_tip_text">弹幕</div>
+                    </div>
+                    <div class="br_quality_select br_selects">
+                        <div class="iconfont_br icon_br_quality"></div>
+                        <div class="br_tip_text">
+                            <div class="br_select_list_wrap">
+                                <ul class="br_select_list">
+                                    <li class="br_select_item br_active">4K</li>
+                                    <li class="br_select_item">1080P 高清</li>
+                                    <li class="br_select_item">720P 高清</li>
+                                    <li class="br_select_item">480P 清晰</li>
+                                    <li class="br_select_item">360P 流畅</li>
+                                    <li class="br_select_item">自动</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="br_speed_select br_selects">
+                        <div class="iconfont_br icon_br_speedometer"></div>
+                        <div class="br_tip_text">
+                            <div class="br_select_list_wrap">
+                                <ul class="br_select_list">
+                                    <li class="br_select_item" data-value="2.0">2.0X</li>
+                                    <li class="br_select_item" data-value="1.5">1.5X</li>
+                                    <li class="br_select_item br_active" data-value="1.25">1.25X</li>
+                                    <li class="br_select_item" data-value="1.0">1.0X</li>
+                                    <li class="br_select_item" data-value="0.75">0.75X</li>
+                                    <li class="br_select_item" data-value="0.5">0.5X</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="br_voice_wrapper br_btn">
+                        <div class="iconfont_br icon_br_voice_on"></div>
+                        <div class="br_tip_text">
+                            <div class="br_voice_drag">
+                                <div class="br_voice_range">
+                                    <div class="br_voice_current"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="br_browser_fullscreen br_btn">
+                        <div class="iconfont_br icon_br_arrows_expand"></div>
+                        <div class="br_tip_text">网页全屏</div>
+                    </div>
+                    <div class="br_window_fullscreen br_btn">
+                        <div class="iconfont_br icon_br_full_expand"></div>
+                        <div class="br_tip_text">全屏</div>
+                    </div>
+                </div>
+            </div>
+            <div class="br_favorite">
+                <div class="br_favorite_controls br_display_flex">
+                    <div class="br_pip_btn br_btn br_display_flex">
+                        <div class="iconfont_br icon_br_pip"></div>
+                        <div class="br_tip_text">画中画</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../components/jquery/jquery-3.4.1.js"></script>
+<script src="../../src/js/jquery.videoUI_dev.js"></script>
+</html>

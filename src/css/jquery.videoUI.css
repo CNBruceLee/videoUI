@@ -1,0 +1,361 @@
+/*!
+ * videoUI 0.1
+ * https://github.com/*****
+ * @license CNBruceLee licensed
+ */
+.br_video_container * {
+    padding: 0;
+    margin: 0;
+}
+
+.br_show {
+    display: block !important;
+}
+
+.br_hidden {
+    display: none !important;
+}
+
+.br_not_select {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+
+.br_no_touch {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.br_fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+}
+
+/*video容器样式设置*/
+.br_video_container {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/*视频内容样式设置*/
+.br_video_container .br_video_wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.br_video_container .br_video_content {
+    width: 100%;
+    height: 100%;
+}
+
+/*控制栏样式设置*/
+
+/*通用样式设置*/
+.br_video_container .br_display_flex {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.br_video_controls .iconfont_br {
+    height: 100%;
+    line-height: 48px;
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.br_video_controls .iconfont_br:hover {
+    text-shadow: 0 0 2px #FFA500;
+    color: #FFA500;
+    transform: scale(1.1);
+}
+
+.br_video_controls .br_tip_text {
+    color: white;
+    font-size: 15px;
+    font-weight: 200;
+    position: absolute;
+    bottom: 58px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 4px;
+    border-radius: 2px;
+    display: none;
+    /*opacity: 0.6;*/
+}
+
+.br_video_controls .iconfont_br:hover + .br_tip_text {
+    display: block;
+}
+
+.br_video_container .br_video_controls {
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(rgba(80, 70, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+/* 转为JS控制*/
+/*.br_video_container:hover .br_video_controls {*/
+/*    display: block;*/
+/*}*/
+
+.br_video_container .br_active {
+    background-color: #888888;
+    color: #FFA500;
+    font-weight: bold;
+}
+
+/*左侧控制栏样式*/
+.br_video_container .br_control_left {
+    height: 100%;
+    margin-left: 10px;
+    float: left;
+}
+
+.br_video_container .br_time_display {
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: 300;
+    line-height: 48px;
+}
+
+.br_video_container .br_time_current {
+    color: white;
+    font-weight: 500;
+}
+
+/*进度条样式*/
+.br_video_container .br_progress_bar {
+    width: 100%;
+    height: 4px;
+    background-color: #999999;
+    position: absolute;
+    top: -4px;
+    transition: transform 0.15s ease;
+    cursor: pointer;
+}
+
+.br_video_container .br_progress_bar:hover {
+    transform: scaleY(1.4);
+}
+
+.br_video_container .br_progress_load {
+    height: 100%;
+    /*width: 80%;*/
+    background-color: #EEEEEE;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*video的onprogress事件350s触发一次 动画设置0.35s*/
+    transition: width 0.35s linear;
+}
+
+.br_video_container .br_progress_play {
+    height: 100%;
+    /*width: 30%;*/
+    background-color: #FFA500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*video的ontimeupdate事件250s触发一次 动画设置0.25s*/
+    transition: width 0.25s linear;
+}
+
+.br_video_container .br_progress_play:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px;
+    display: none;
+}
+
+.br_video_container .br_progress_bar:hover .br_progress_play:after {
+    display: block;
+    transform: scale(1.2, 0.8);
+}
+
+/*右侧控制栏样式*/
+
+/*清晰度样式设置*/
+.br_video_controls .br_selects .br_tip_text {
+    bottom: 48px;
+    text-align: center;
+    padding: 0;
+    /*opacity: 0.9;*/
+    /*display: block;*/
+}
+
+.br_video_controls .br_selects .br_tip_text:hover {
+    display: block;
+}
+
+.br_video_controls .br_select_list {
+    list-style: none;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 0;
+    left: -25px;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+.br_video_controls .br_select_list .br_select_item {
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.br_video_controls .br_select_list .br_select_item:hover {
+    background-color: #666666;
+}
+
+/*音量与清晰度样式设置*/
+.br_video_container .br_control_right {
+    height: 100%;
+    padding-right: 10px;
+    float: right;
+}
+
+.br_video_container .br_voice_wrapper {
+    position: relative;
+}
+
+.br_control_right .br_voice_wrapper .br_tip_text {
+    padding: 0;
+    bottom: 50px;
+    left: 10px;
+    width: 26px;
+    height: 96px;
+    /*opacity: 1;*/
+    /*display: block;*/
+}
+
+.br_control_right .br_voice_wrapper .br_tip_text:hover {
+    display: block;
+}
+
+.br_video_container .br_voice_wrapper .br_voice_drag {
+    width: 100%;
+    height: 98px;
+    background-color: #333333;
+    position: relative;
+    padding-top: 10px;
+    box-sizing: border-box;
+    border-radius: 10%;
+}
+
+.br_video_container .br_voice_wrapper .br_voice_range {
+    width: 4px;
+    height: 80px;
+    background-color: #cccccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.br_video_container .br_voice_wrapper .br_voice_current {
+    width: 100%;
+    /*height: 60%;*/
+    background-color: #ffa500;
+    position: absolute;
+    bottom: 0;
+    border-radius: 2px;
+}
+
+.br_video_container .br_voice_wrapper .br_voice_current:before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: -4px;
+    left: -3px;
+    box-shadow: 0 0 4px;
+}
+
+/*我的最爱样式设置*/
+.br_video_container .br_favorite {
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    white-space: nowrap;
+    display: none;
+}
+
+/* 转为JS控制*/
+/*.br_video_container:hover .br_favorite {*/
+/*    display: block;*/
+/*}*/
+
+
+.br_favorite .br_favorite_controls {
+    height: 100%;
+}
+
+.br_favorite .br_favorite_controls .br_btn {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /*opacity: 0.9;*/
+    border-radius: 15px;
+    padding: 0 15px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.br_favorite .br_favorite_controls .br_btn:hover {
+    box-shadow: 0 0 2px #FFA500;
+    background-color: #FFA500;
+    background: linear-gradient(to right, rgba(255, 180, 0, 0.9), rgba(255, 50, 0, 0.9));
+    /*opacity: 1;*/
+}
+
+.br_favorite .br_favorite_controls .br_btn {
+    height: 100%;
+}
+
+.br_favorite .br_favorite_controls .iconfont_br {
+    height: 100%;
+    line-height: 30px;
+    color: white;
+    font-size: 22px;
+}
+
+.br_favorite .br_favorite_controls .br_tip_text {
+    height: 100%;
+    line-height: 30px;
+    color: white;
+    font-size: 15px;
+    padding-left: 5px;
+}
