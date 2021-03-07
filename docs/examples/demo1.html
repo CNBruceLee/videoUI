@@ -6,10 +6,6 @@
     <link rel="stylesheet" href="../../components/iconfont-br/iconfont.css">
     <link rel="stylesheet" href="../../src/css/jquery.videoUI.css">
     <style>
-        .container {
-
-        }
-
         .container .video-ui {
             width: 720px;
             height: 480px;
@@ -19,7 +15,7 @@
 </head>
 <body>
 
-<div class="container"><!--网页全屏时的容器-->
+<div class="container">
     <div class="video-ui"></div>
 </div>
 
@@ -30,23 +26,15 @@
 <script>
     $(function () {
         let vui = $(".video-ui").videoUi({
-            poster: "https://iedu.rizhaosteel.com:9443/static/images/video_loading.png",
-            // poster: "http://127.0.0.1:8000/static/images/video_loading.png",
+            poster: "../../multimedia/images/poster_img.png",
             source: {
+                src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
                 // src: "http://vjs.zencdn.net/v/oceans.mp4",
-                // src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
-                src: "https://iedu.rizhaosteel.com:9443/kp/stream_video-5.mp4",
-                // src: "http://127.0.0.1:8000/kp/stream_video-5.mp4",
-                // src: "../../media/star.mp4",
+                // src: "../../multimedia/videos/star.mp4",
                 type: "video/mp4",
             },
-            browserFullscreen: true,
-            // browserFullscreenContainer:$(".container"),
-
         })
-        vui.play();
-        // vui.pause();
     });
-
+    vui.pause();
 </script>
 </html>

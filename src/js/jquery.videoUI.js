@@ -1,6 +1,6 @@
 /*!
  * videoUI 0.1
- * https://github.com/*****
+ * https://github.com/CNBruceLee/videoUI
  * @license CNBruceLee licensed
  */
 (function (global, factory) {
@@ -31,10 +31,9 @@
     $.fn.videoUi = function (options) {
 
         // common jQuery objects
+        // let $htmlBody = $('html, body');
         let $container = $(this);
-        var $htmlBody = $('html, body');
-
-        var vui = $.fn.videoUi;
+        let vui = $.fn.videoUi;
 
         //jqueryObj
         vui.$video = null;
@@ -63,7 +62,6 @@
         let control_areas_timer;//鼠标3s不移动因此控制栏定时器
         let progress_drag = false;
         let voice_br_drag = false;
-        let tempContainer = "";
         let browserFullscreenStatus = false;
 
         //对外提供的属性
@@ -74,19 +72,42 @@
         vui.bufferTimes = 0;
         vui.volume = 0;
 
-        options = $.extend(true, {
+        options = $.extend({
             windowFullscreen: true,
             pictureInPicture: true,
             browserFullscreen: true,
-            browserFullscreenContainer: $("body"),
+            playbackRate: true,
+            playbackRateData: [{
+                name: "2.0X",
+                value: "2.0",
+                selected: false
+            }, {
+                name: "1.5X",
+                value: "1.5",
+                selected: false
+            }, {
+                name: "1.25X",
+                value: "1.25",
+                selected: false
+            }, {
+                name: "1.0X",
+                value: "1.0",
+                selected: true
+            }, {
+                name: "0.75X",
+                value: "0.75",
+                selected: false
+            }, {
+                name: "0.5X",
+                value: "0.5",
+                selected: false
+            }],
         }, options);
 
-        //TODO待实现功能
+        //TODO 待实现功能
         options = $.extend(options, {
             bulletAble: false,
             quality: [],
-            // speed: [],
-
         });
 
         if ($(this).length) {
@@ -172,14 +193,14 @@
 
             }
             // 播放速度
-            if (options.playbackRate && options.playbackRate.length > 0) {
+            if (options.playbackRate && options.playbackRateData && options.playbackRateData.length > 0) {
                 let speed_select = $("<div></div>").appendTo(control_right).addClass("br_speed_select br_selects");
                 $("<div></div>").appendTo(speed_select).addClass("iconfont_br icon_br_speedometer");
                 let speed_contents = $("<div></div>").appendTo(speed_select).addClass("br_tip_text");
 
                 $speed_contents = $("<div></div>").appendTo(speed_contents).addClass("br_select_list_wrap");
                 let select_list = $("<ul></ul>").appendTo($speed_contents).addClass("br_select_list");
-                options.playbackRate.forEach(function (item, index) {
+                options.playbackRateData.forEach(function (item, index) {
                     let select_item = $("<li></li>").appendTo(select_list);
                     select_item.addClass("br_select_item");
                     select_item.attr("data-value", item.value);
@@ -309,13 +330,13 @@
 
         //初始化时设置播放的倍速
         function iniPlaybackRate() {
-            if (options.playbackRate && options.playbackRate.length > 0) {
-                let playbackRateSelect = options.playbackRate.find(item => item.selected == true)
+            if (options.playbackRateData && options.playbackRateData.length > 0) {
+                let playbackRateSelect = options.playbackRateData.find(item => item.selected == true)
                 if (playbackRateSelect && playbackRateSelect.value) {
                     video.playbackRate = playbackRateSelect.value;
                 } else {
-                    if (options.playbackRate[0] && options.playbackRate[0].value) {
-                        video.playbackRate = options.playbackRate[0].value;
+                    if (options.playbackRateData[0] && options.playbackRateData[0].value) {
+                        video.playbackRate = options.playbackRateData[0].value;
                         $speed_contents.find(".br_select_item").first().addClass("br_active");
                     }
 
@@ -582,38 +603,3 @@
         return vui;
     };
 });
-
-
-/**** TODO
- * 在线视频测试URL和各类型video（MP4, flv, mkv, 3gp,webm）下载资源：https://www.jianshu.com/p/3b7a7f534a05
- * 1、播放与暂停时在视屏中间显示过渡动画
- * 2、加载过程中显示loading及网速
- * 3、进度条顶端样式优化
- * 4、最新版的Chrome浏览器（以及所有以Chromium为内核的浏览器）中，已不再允许自动播放音频和视频
- * 即使 js调用play方法，会报错（Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first）
- * 比较常规的做法是，为video标签设置muted属性，使它静音，这样视频就能自动播放了，但是没有声音:
- * 然后待用户在网页上有了任意触发后，再将muted去掉，或者让用户手动去打开音频（腾讯视频就是这样做的）
- * 5、play执行后报错，样式也更改了
- * 6、加载过程中拖动进度条不生效，特别卡，不光滑
- * 7、透明度设置后影响子元素透明度，
- * .produce{background: #2c3e50；opacity：0.8}
- * 这种写法就算给子元素重新赋值opacity：1；他也同样会继承父元素opacity的值。
- * 正确写法：background:rgba(44,62,80,.8);
- * 8、进度或音量调整时在界面上显示其进度和音量信息
- * 9、双击退出全屏
- * 10、初始化是设置音量
- *
- *
- * 当浏览器正在下载指定的音频/视频时，会发生 progress 事件。
- * 当音频/视频处于加载过程中时，会依次发生以下事件：
- * loadstart
- * durationchange
- * loadedmetadata
- * loadeddata
- * progress
- * canplay
- * canplaythrough
- *
- *
-
- * ***/
