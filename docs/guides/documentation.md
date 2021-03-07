@@ -67,7 +67,7 @@
 </html>
 ```
 
-![demo1](..\..\multimedia\images\demo1.png)
+![demo1](https://github.com/CNBruceLee/videoUI/raw/master/multimedia/images/demo1.png)
 
 ### 禁用播放速度
 
@@ -90,7 +90,7 @@ $(function () {
 });
 ```
 
-![demo1](..\..\multimedia\images\demo2.png)
+![demo1](https://github.com/CNBruceLee/videoUI/raw/master/multimedia/images/demo2.png)
 
 ### 自定义播放速度
 
@@ -134,13 +134,13 @@ $(function () {
     });
 ```
 
-![demo1](..\..\multimedia\images\demo3.png)
+![demo1](https://github.com/CNBruceLee/videoUI/raw/master/multimedia/images/demo3.png)
 
 ### 音量调节
 
 音量调节无需进行设置，样式如下：
 
-![demo1](..\..\multimedia\images\demo4.png)
+![demo1](https://github.com/CNBruceLee/videoUI/raw/master/multimedia/images/demo4.png)
 
 可通过滑动音量条来调节音量的大小。
 
@@ -209,7 +209,7 @@ $(function () {
 });
 ~~~
 
-![demo1](..\..\multimedia\images\demo5.png)
+![demo1](https://github.com/CNBruceLee/videoUI/raw/master/multimedia/images/demo5.png)
 
 
 
