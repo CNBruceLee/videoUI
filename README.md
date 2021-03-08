@@ -65,15 +65,21 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 </html>
 ~~~
 
-注：需要引入JQuery与字体库。详细说明参考操作手册。
+注：需要引入JQuery与字体库。详细说明参考帮助文档。
+[帮助文档 GitHub](https://github.com/CNBruceLee/videoUI/blob/master/docs/guides/documentation.md)
+
+[帮助文档 Gitee](https://gitee.com/cnbrucelee/videoUI/blob/master/docs/guides/documentation.md)
 
 ## 问题反馈列表
 
 若使用过程中有优化建议可反馈在问题清单中，videoUI功能会不定期更新与完善，你们的问题就是我的动力。
+[问题反馈 GitHub](https://github.com/CNBruceLee/videoUI/blob/master/docs/guides/documentation.md)
+
+[问题反馈 Gitee](https://gitee.com/cnbrucelee/videoUI/blob/master/docs/guides/documentation.md)
 
 ## 相关资源
 
-[GitHub地址](https://github.com/CNBruceLee/videoUI)
+[源码 GitHub](https://github.com/CNBruceLee/videoUI)
 
-[Gitee地址](https://gitee.com/cnbrucelee/videoUI)
+[源码 Gitee](https://gitee.com/cnbrucelee/videoUI)
 
