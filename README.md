@@ -83,3 +83,5 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 [源码 Gitee](https://gitee.com/cnbrucelee/videoUI)
 
+喜欢的点赞、收藏，你的支持就是我的动力！！！
+
