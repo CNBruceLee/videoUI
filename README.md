@@ -65,7 +65,7 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 </html>
 ~~~
 
-注：需要引入JQuery与字体库。详细说明参考帮助文档。
+注：需要引入jQuery与字体库。详细说明参考帮助文档。
 
 [帮助文档 GitHub](https://github.com/CNBruceLee/videoUI/blob/master/docs/guides/documentation.md)
 
