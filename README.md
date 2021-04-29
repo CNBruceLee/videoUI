@@ -7,7 +7,7 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 ## 样式
 
-![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/multimedia/images/demo0.png)
+![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/media/images/demo0.png)
 
 
 
@@ -15,69 +15,69 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 - 视频的播放/暂停
 - 时长与当前进度
+- 清晰度切换
 - 播放速度
 - 音量调节
 - 网页全屏
 - 全屏
 - 画中画播放
 
+
+- 语言选择
+
+- 键盘左右键快进
+
+- 键盘上下键调节音量
+
+- 加载中显示加载图标
+
+- 消息提示
+
+  
 ## 样例
 
 ~~~ html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../media/images/favicon.ico" type="image/x-icon">
     <title>videoUI</title>
-    <link rel="stylesheet" href="../../components/iconfont-br/iconfont.css">
-    <link rel="stylesheet" href="../../src/css/jquery.videoUI.css">
-    <style>
-        .container .video-ui {
-            width: 720px;
-            height: 480px;
-            margin: 10px auto;
-        }
-    </style>
-</head>
+    <!-- 1、引入CSS -->
+	<link href="../css/videoUI.css" rel="stylesheet"></head>
 <body>
-
 <div class="container">
-    <div class="video-ui"></div>
+    <!--2、video的容器 -->
+    <div class="video-ui" style="width: 720px;height: 480px;margin: 10px auto"></div>
 </div>
-
-</body>
-<script src="../../components/jquery/jquery-3.4.1.js"></script>
-<script src="../../src/js/jquery.videoUI.js"></script>
-
+<!-- 3、引入JS -->
+<script type="text/javascript" src="../js/videoUI.js"></script></body>
 <script>
-    $(function () {
-        let vui = $(".video-ui").videoUi({
-            poster: "../../multimedia/images/poster_img.png",
-            source: {
-                src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
-                // src: "http://vjs.zencdn.net/v/oceans.mp4",
-                // src: "../../multimedia/videos/star.mp4",
-                type: "video/mp4",
-            },
-        })
+    //4、创建videoUI实例
+    var vui = new VideoUI({//5、配置对象
+        el: ".video-ui",
+        qualityData: [{
+            name: "4K",
+            src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+            type: "video/mp4"
+        }],
     });
 </script>
 </html>
 ~~~
 
-注：需要引入jQuery与字体库。详细说明参考帮助文档。
+
 
 [帮助文档 GitHub](https://github.com/CNBruceLee/videoUI/blob/master/docs/guides/documentation.md)
 
 [帮助文档 Gitee](https://gitee.com/cnbrucelee/videoUI/blob/master/docs/guides/documentation.md)
 
-## 问题反馈列表
+https://gitee.com/cnbrucelee/videoUI/blob/master/问题清单.md)
 
-若使用过程中有优化建议可反馈在问题清单中，videoUI功能会不定期更新与完善，你们的问题就是我的动力。
 
-[问题反馈 GitHub](https://github.com/CNBruceLee/videoUI/blob/master/问题清单.md)
-
-[问题反馈 Gitee](https://gitee.com/cnbrucelee/videoUI/blob/master/问题清单.md)
 
 ## 相关资源
 

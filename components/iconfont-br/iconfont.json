@@ -1,10 +1,17 @@
 {
   "id": "2348587",
-  "name": "video",
-  "font_family": "iconfont_br",
-  "css_prefix_text": "icon_br_",
+  "name": "videoUI",
+  "font_family": "iconfont-br",
+  "css_prefix_text": "icon-br-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "12504736",
+      "name": "加载",
+      "font_class": "loading",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
     {
       "icon_id": "8641726",
       "name": "重播",
@@ -29,14 +36,14 @@
     {
       "icon_id": "13677284",
       "name": "弹幕开",
-      "font_class": "bullet_on",
+      "font_class": "bullet-on",
       "unicode": "e600",
       "unicode_decimal": 58880
     },
     {
       "icon_id": "13677288",
       "name": "弹幕关",
-      "font_class": "bullet_off",
+      "font_class": "bullet-off",
       "unicode": "e601",
       "unicode_decimal": 58881
     },
@@ -50,14 +57,14 @@
     {
       "icon_id": "11918448",
       "name": "md-expand",
-      "font_class": "full_expand",
+      "font_class": "full-expand",
       "unicode": "e801",
       "unicode_decimal": 59393
     },
     {
       "icon_id": "348448",
       "name": "expand",
-      "font_class": "arrows_expand",
+      "font_class": "arrows-expand",
       "unicode": "eaa1",
       "unicode_decimal": 60065
     },
@@ -78,28 +85,28 @@
     {
       "icon_id": "1433848",
       "name": "step-backward",
-      "font_class": "step_backward",
+      "font_class": "step-backward",
       "unicode": "e667",
       "unicode_decimal": 58983
     },
     {
       "icon_id": "1433849",
       "name": "step-forward",
-      "font_class": "step_forward",
+      "font_class": "step-forward",
       "unicode": "e668",
       "unicode_decimal": 58984
     },
     {
       "icon_id": "1898662",
       "name": "compress",
-      "font_class": "arrows_compress",
+      "font_class": "arrows-compress",
       "unicode": "eaa2",
       "unicode_decimal": 60066
     },
     {
       "icon_id": "8952767",
       "name": "compress",
-      "font_class": "full_compress",
+      "font_class": "full-compress",
       "unicode": "e800",
       "unicode_decimal": 59392
     },
@@ -113,7 +120,7 @@
     {
       "icon_id": "10564328",
       "name": "loop-once",
-      "font_class": "loop_once",
+      "font_class": "loop-once",
       "unicode": "e714",
       "unicode_decimal": 59156
     },
@@ -148,14 +155,14 @@
     {
       "icon_id": "18991774",
       "name": "voice-off",
-      "font_class": "voice_off",
+      "font_class": "voice-off",
       "unicode": "e88f",
       "unicode_decimal": 59535
     },
     {
       "icon_id": "18991775",
       "name": "voice-on",
-      "font_class": "voice_on",
+      "font_class": "voice-on",
       "unicode": "e890",
       "unicode_decimal": 59536
     }

@@ -1,0 +1,560 @@
+/*!
+ * videoUI 0.1
+ * Author: CNBruceLee
+ * license: Apache-2.0
+ * gitee：https://gitee.com/cnbrucelee/videoUI
+ * github：https://github.com/CNBruceLee/videoUI
+ */
+
+.br-show {
+  display: block !important;
+}
+
+.br-hidden {
+  display: none !important;
+}
+
+.br-cursor-hidden {
+  cursor: none !important;
+}
+
+@bgc-base: #000000;
+@bgc-font: #FFA500;
+@bgc-tex: #888888;
+@bgc-bar: #cccccc;
+@bgc-load: #EEEEEE;
+
+.bgca-base(@a) {
+  background: rgba(0, 0, 0, @a);
+}
+
+.br-fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+}
+
+.br-video-container {
+  width: 100%;
+  height: 100%;
+  background-color: @bgc-base;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .br-not-select {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+  }
+
+  .br-no-touch {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+
+  &:hover .br-video-controls {
+    display: block;
+  }
+
+  &:hover .br-favorite {
+    display: block;
+  }
+
+  .br-display-flex {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .br-video-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .br-video-content {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .br-video-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background: radial-gradient(circle, rgba(136, 136, 136, 15), rgba(136, 136, 136, 0));
+    opacity: 0.5;
+    display: none;
+    border-radius: 30%;
+    box-shadow: 0 0 40px @bgc-tex;
+
+    .iconfont-br {
+      color: white;
+      font-size: 60px;
+      cursor: pointer;
+      text-shadow: 0 0 10px @bgc-tex;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .icon-br-loading {
+      animation-name: loadingCircle;
+      animation-direction: inherit; /*循环播放*/
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite; /*循环次数设置 无限循环*/
+      animation-fill-mode: both; /*保留动画初始状态和终止状态 */
+      animation-timing-function: ease; /*设置线性动画 */
+    }
+  }
+
+  .br-video-controls {
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    .bgca-base(0.7);
+    background: linear-gradient(rgba(50, 30, 0, 0.8), rgba(0, 0, 0, 0.8));
+
+    //TODO 需去除
+    //display: block;
+
+    .iconfont-br {
+      height: 100%;
+      line-height: 48px;
+      margin: 0 10px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      .br-not-select();
+      .br-no-touch();
+    }
+
+    .iconfont-br:hover {
+      text-shadow: 0 0 2px @bgc-font;
+      color: @bgc-font;
+      transform: scale(1.1);
+    }
+
+    .iconfont-br:hover + .br-tip-text {
+      display: block;
+    }
+
+    .br-active {
+      background-color: @bgc-tex;
+      color: @bgc-font;
+      font-weight: bold;
+    }
+
+    .br-tip-text {
+      color: white;
+      font-size: 15px;
+      font-weight: 200;
+      position: absolute;
+      bottom: 58px;
+      left: 50%;
+      transform: translateX(-50%);
+      .bgca-base(0.7);
+      padding: 2px 4px;
+      border-radius: 2px;
+      white-space: nowrap;
+      display: none;
+
+      .br-not-select();
+      .br-no-touch();
+    }
+
+    //提示框父容器改为相对定位
+    .br-play-toggle,
+    .br-bullet-toggle,
+    .br-quality-select,
+    .br-speed-select,
+    .br-voice-bar,
+    .br-browser-fullscreen,
+    .br-window-fullscreen {
+      position: relative;
+    }
+
+    .br-control-left {
+      height: 100%;
+      margin-left: 10px;
+      float: left;
+
+
+      .br-time-display {
+        font-size: 14px;
+        color: @bgc-bar;
+        font-weight: 300;
+        line-height: 48px;
+
+        .br-time-current {
+          color: white;
+          font-weight: 500;
+        }
+      }
+
+    }
+
+    .br-progress-bar {
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      top: -4px;
+      cursor: pointer;
+
+      .br-progress-preview {
+        position: absolute;
+
+        //TODO 有预览窗口时 宽度改为160 width: 160px;
+        width: 60px;
+        height: 90px;
+        transform: translate3d(0, -105%, 0);
+        display: none;
+
+        .br-progress-point-time {
+          color: white;
+          font-size: 10px;
+          font-weight: 200;
+          position: absolute;
+          padding: 2px 4px;
+          border-radius: 2px;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          .bgca-base(0.7);
+          white-space: nowrap;
+        }
+      }
+
+      &:hover .br-progress-preview {
+        display: block;
+      }
+
+      .br-progress-range {
+        width: 100%;
+        height: 100%;
+        background-color: #999999;
+        transition: transform 0.15s ease;
+
+        &:hover {
+          transform: scaleY(2);
+        }
+
+
+        .br-progress-load {
+          height: 100%;
+          //width: 80%;
+          background-color: @bgc-load;
+          position: absolute;
+          top: 0;
+          left: 0;
+          /*video的onprogress事件350s触发一次 动画设置0.35s*/
+          transition: width 0.35s linear;
+        }
+
+        .br-progress-current {
+          height: 100%;
+          //width: 30%;
+          background-color: @bgc-font;
+          position: absolute;
+          top: 0;
+          left: 0;
+          /*video的ontimeupdate事件250s触发一次 动画设置0.25s*/
+          //transition: width 0.01s linear;
+        }
+      }
+
+      .br-progress-play-drag {
+        position: absolute;
+        //left: 30%;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: @bgc-font;
+        z-index: 3;
+        opacity: 0;
+        transform: translate3d(-50%, -36%, 0);
+        transition: opacity 0.15s linear;
+
+        &:after {
+          content: "";
+          width: 140%;
+          height: 140%;
+          background-color: @bgc-font;
+          position: absolute;
+          right: -20%;
+          top: -20%;
+          border-radius: 50%;
+          box-shadow: 0 0 5px @bgc-font;
+          opacity: 0.4;
+        }
+
+        //拖拽块上悬停 进度条也放大两倍
+        &:hover + .br-progress-range {
+          transform: scaleY(2);
+        }
+      }
+
+      &:hover .br-progress-play-drag {
+        opacity: 1;
+      }
+    }
+
+    .br-control-right {
+      height: 100%;
+      padding-right: 10px;
+      float: right;
+
+      .br-selects {
+        .br-tip-text {
+          //display: block;
+          bottom: 55px;
+          text-align: center;
+          padding: 0;
+
+          &:hover {
+            display: block;
+          }
+
+          .br-select-list-wrap {
+            width: 100px;
+
+            .br-select-list {
+              list-style: none;
+              width: 100%;
+              position: absolute;
+              .bgca-base(0.7);
+              bottom: 0;
+              padding: 5px 0;
+              border-radius: 5px;
+
+              &:after {
+                width: 100px;
+                height: 25px;
+                position: absolute;
+                bottom: -20px;
+                left: -0;
+                content: "";
+              }
+
+              .br-select-item {
+                height: 28px;
+                line-height: 28px;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: #666666;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .br-voice-bar {
+        position: relative;
+
+        .br-tip-text {
+          //display: block;
+
+          padding: 0;
+          bottom: 55px;
+          width: 50px;
+          height: 125px;
+          border-radius: 5px;
+
+          &:after {
+            width: 50px;
+            height: 25px;
+            position: absolute;
+            bottom: -20px;
+            content: "";
+          }
+
+          &:hover {
+            display: block;
+          }
+
+          .br-voice-info {
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            width: 100%;
+          }
+
+          .br-voice-range {
+            width: 4px;
+            height: 85px;
+            background-color: @bgc-bar;
+            position: absolute;
+            border-radius: 2px;
+            margin: 0 23px;
+            box-sizing: content-box;
+
+            &:after {
+              display: block;
+              position: absolute;
+              top: 0;
+              left: -19px;
+              width: 42px;
+              height: 85px;
+              content: "";
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            .br-voice-drag {
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: @bgc-font;
+              z-index: 3;
+              opacity: 1;
+              transition: opacity 0.15s linear;
+              left: 50%;
+              transform: translate3d(-50%, -50%, 0);
+
+              &:after {
+                content: "";
+                width: 140%;
+                height: 140%;
+                background-color: @bgc-font;
+                position: absolute;
+                right: -20%;
+                top: -20%;
+                border-radius: 50%;
+                box-shadow: 0 0 5px @bgc-font;
+                opacity: 0.4;
+              }
+
+              &:before {
+                content: "";
+                width: 300%;
+                height: 300%;
+                position: absolute;
+                right: -50%;
+                top: -50%;
+                border-radius: 50%;
+                opacity: 0;
+              }
+            }
+
+            .br-voice-current {
+              width: 100%;
+              //height: 70%;
+              background-color: @bgc-font;
+              border-radius: 2px;
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .br-favorite {
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    white-space: nowrap;
+    display: none;
+
+    .br-favorite-controls {
+      height: 100%;
+
+      .br-btn {
+        height: 100%;
+        background-color: #333333;
+        opacity: 0.9;
+        border-radius: 15px;
+        padding: 0 15px;
+        cursor: pointer;
+        margin-left: 8px;
+
+        &:hover {
+          box-shadow: 0 0 2px #FFA500;
+          background-color: #FFA500;
+          background: linear-gradient(to right, rgba(255, 180, 0, 0.9), rgba(255, 50, 0, 0.9));
+          /*opacity: 1;*/
+        }
+
+        .iconfont-br {
+          height: 100%;
+          line-height: 30px;
+          color: white;
+          font-size: 22px;
+        }
+
+        .br-tip-text {
+          height: 100%;
+          line-height: 30px;
+          color: white;
+          font-size: 15px;
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+  .br-msg-wrapper {
+    position: absolute;
+    top: 20px;
+    display: none;
+    //height: 30px;
+    //width: 100px;
+    max-width: 60%;
+    left: 50%;
+    padding: 10px;
+    transform: translateX(-50%);
+    font-size: 14px;
+
+    background: radial-gradient(circle, rgba(136, 136, 136, 15), rgba(136, 136, 136, 0));
+    opacity: 0.5;
+    border-radius: 5px;
+    box-shadow: 0 0 40px @bgc-tex;
+    color: white;
+
+    transition: opacity 0.5s linear;
+
+  }
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(30deg);
+  }
+  60% {
+    transform: rotate(280deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

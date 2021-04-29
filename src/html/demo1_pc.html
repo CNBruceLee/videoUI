@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../media/images/favicon.ico" type="image/x-icon">
+    <title>videoUI</title>
+</head>
+<body>
+<div class="container">
+    <div class="video-ui" style="width: 720px;height: 480px;margin: 10px auto">
+    </div>
+</div>
+</body>
+<script>
+    var vui = new VideoUI({
+        el: ".video-ui",
+        qualityData: [{
+            name: "4K",
+            src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+            type: "video/mp4"
+        }],
+    });
+</script>
+</html>
