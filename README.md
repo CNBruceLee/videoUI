@@ -75,8 +75,6 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 [帮助文档 Gitee](https://gitee.com/cnbrucelee/videoUI/blob/master/docs/guides/documentation.md)
 
-https://gitee.com/cnbrucelee/videoUI/blob/master/问题清单.md)
-
 
 
 ## 相关资源
