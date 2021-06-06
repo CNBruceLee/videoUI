@@ -4,7 +4,7 @@ HTML5 Video是现在HTML5 最流行的功能之一，得到了大多数最新版
 videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样式与操作。
 
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://gitee.com/cnbrucelee/videoUI/blob/master/LICENSE)
-
+---
 
 ## 样式
 
