@@ -8,7 +8,7 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 
 ## 演示
 
-![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/media/images/demo0.gif)
+![demo0](https://github.com/cnbrucelee/videoUI/raw/master/media/images/demo0.gif)
 
 
 
