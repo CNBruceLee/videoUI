@@ -1,13 +1,14 @@
 # videoUI
-HTML5 Video是现在HTML5 最流行的功能之一，得到了大多数最新版本的浏览器支持（包括IE9），也正是如此，在不同浏览器提供了不同的视频样式，在不同浏览器访问时样式不统一，我们制作自定义视频控件为了在所有的浏览器中有一个相同的视频控件而不受默认视频控件的控制。
+HTML5 Video是现在HTML5 最流行的功能之一，得到了大多数最新版本的浏览器支持，也正是如此，在不同浏览器提供了不同的视频样式，在不同浏览器访问时样式不统一，我们制作自定义视频控件为了在所有的浏览器中有一个相同的视频控件而不受默认视频控件的控制。
 
 videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样式与操作。
 
+[![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://gitee.com/cnbrucelee/videoUI/blob/master/LICENSE)
 
 
 ## 样式
 
-![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/media/images/demo0.png)
+![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/media/images/demo0.gif)
 
 
 
@@ -21,17 +22,14 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 - 网页全屏
 - 全屏
 - 画中画播放
-
-
 - 语言选择
-
 - 键盘左右键快进
-
 - 键盘上下键调节音量
-
 - 加载中显示加载图标
-
 - 消息提示
+
+2021-06-06更新
+- 键盘空格键暂停与播放
 
   
 ## 样例

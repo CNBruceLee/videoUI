@@ -1123,6 +1123,7 @@ const keyboardDownMpa = {
     down: keyboardDownDown,
     left: keyboardDownLeft,
     right: keyboardDownRight,
+    space: keyboardDownSpace,
 };
 
 
@@ -1202,6 +1203,16 @@ function keyboardDownRight(ev) {
         updateProgressAndPlay.call(this);
         showMsgBox.call(this, getTextDesc.call(this, "Current Time") + ":" + durationFm1(currentTime));
     }
+}
+
+/**
+ * 空格键暂停
+ * @param ev
+ */
+function keyboardDownSpace(ev) {
+    ev = ev || event;
+    ev.preventDefault();
+    playStatusChange.call(this)
 }
 
 
