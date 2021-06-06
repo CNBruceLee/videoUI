@@ -6,7 +6,7 @@ videoUI是一个轻量级的前端控件，在不同浏览器下提供统一样�
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://gitee.com/cnbrucelee/videoUI/blob/master/LICENSE)
 ---
 
-## 样式
+## 演示
 
 ![demo0](https://gitee.com/cnbrucelee/videoUI/raw/master/media/images/demo0.gif)
 
